@@ -1,9 +1,6 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import List from './components/List';
 import {Provider} from 'react-redux';
-import logo from './logo.svg';
-import './App.css';
 import * as redux from 'redux';
 import {rootReducer} from './reducers/reducer';
 
