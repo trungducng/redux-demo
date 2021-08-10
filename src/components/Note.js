@@ -1,24 +1,22 @@
-import React from 'react';
-import {connect} from 'react-redux';
-import {removeItem} from '../action';
+import React from "react";
+import { connect } from "react-redux";
+import { removeItem } from "../action";
 
-class Note extends React.Component {
-    dispatch = this.props.dispatch;
+const Note = (props) => {
+  const { dispatch } = props.dispatch;
 
-    removeNote() {
-        this.dispatch(removeItem(this.props.item));
-    }
+  const removeNote = () => {
+    dispatch(removeItem(props.item));
+  };
 
-    render() {
-        return (
-            <div>
-                <h4>{this.props.children}</h4>
-                <button onClick={this.removeNote.bind(this)}>Delete</button>
-            </div>    
-        );
-    }
-}
+  return (
+    <div>
+      <h4>{props.children}</h4>
+      <button onClick={() => removeNote()}>Delete</button>
+    </div>
+  );
+};
 
 export default connect((state) => {
-    return {};
+  return {};
 })(Note);

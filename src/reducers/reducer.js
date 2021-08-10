@@ -1,8 +1,8 @@
-import * as redux from 'redux';
-var statusReducer = require('./statusReducer.js');
-var mangReducer = require ('./mangReducer.js');
+import * as redux from "redux";
+import statusReducer from "./statusReducer.js";
+import mangReducer from "./mangReducer.js";
 
-export var rootReducer = redux.combineReducers({
-    mang: mangReducer,
-    status: statusReducer
+export const rootReducer = redux.combineReducers({
+  mang: mangReducer,
+  status: statusReducer,
 });

@@ -1,37 +1,36 @@
-import React from 'react';
-import {connect} from 'react-redux';
-import {addItem, toggleStatus} from '../action';
+import React, { useRef } from "react";
+import { connect } from "react-redux";
+import { addItem, toggleStatus } from "../action";
 
-class NoteForm extends React.Component { 
-    handleSubmit(e) {
-        e.preventDefault();
-        let {dispatch} = this.props;
-        dispatch(addItem(this.refs.txt.value));
-        this.showAddForm();
-    }
+const NoteForm = (props) => {
+  const txtRef = useRef();
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const { dispatch } = props;
+    dispatch(addItem(txtRef.current.value));
+    showAddForm();
+  };
 
-    showAddForm() {
-        let {dispatch} = this.props;
-        dispatch(toggleStatus());
-    }
+  const showAddForm = () => {
+    const { dispatch } = props;
+    dispatch(toggleStatus());
+  };
 
-    render() {
-        if (this.props.status === true) {
-            return (
-                <form onSubmit={this.handleSubmit.bind(this)}>
-                    <input type='text' placeholder='Enter a note' ref='txt'/>
-                    <button>ADD</button>
-                </form>
-            );
-        } else {
-            return (
-                <button onClick={() => this.showAddForm()}>+</button>
-            );
-        }
-        
-    }
-}
+  let compoenentToRender = "";
+  if (props.status === true) {
+    compoenentToRender = (
+      <form onSubmit={handleSubmit}>
+        <input type="text" placeholder="Enter a note" ref={txtRef} />
+        <button>ADD</button>
+      </form>
+    );
+  } else {
+    compoenentToRender = <button onClick={() => showAddForm()}>+</button>;
+  }
+
+  return compoenentToRender;
+};
 
 export default connect((state) => {
-    return {status: state.status}
+  return { status: state.status };
 })(NoteForm);
