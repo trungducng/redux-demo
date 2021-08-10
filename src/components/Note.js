@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { removeItem } from "../action";
 
 const Note = (props) => {
-  const { dispatch } = props.dispatch;
+  const { dispatch } = props;
 
   const removeNote = () => {
     dispatch(removeItem(props.item));

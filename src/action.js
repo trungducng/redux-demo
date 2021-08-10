@@ -1,15 +1,11 @@
-function addItem(item) {
-    return {type: 'ADD_ITEM', item};
-}
+export const addItem = (item) => {
+  return { type: "ADD_ITEM", item };
+};
 
-function removeItem(item) {
-    return {type: 'REMOVE_ITEM', item};
-}
+export const removeItem = (item) => {
+  return { type: "REMOVE_ITEM", item };
+};
 
-function toggleStatus() {
-    return {type: 'TOGGLE_STATUS'}
-}
-
-module.exports = {
-    addItem, removeItem, toggleStatus
+export const toggleStatus = () => {
+  return { type: "TOGGLE_STATUS" };
 };

@@ -11,14 +11,12 @@ const store = redux.createStore(
   )
 );
 
-class App extends React.Component {
-  render() {
-    return (
-      <Provider store={store}>
-        <List />
-      </Provider>
-    );
-  }
-}
+const App = () => {
+  return (
+    <Provider store={store}>
+      <List />
+    </Provider>
+  );
+};
 
 export default App;
